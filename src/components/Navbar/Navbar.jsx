@@ -482,7 +482,12 @@ const Navbar = () => {
 										</a>
 									</li>
 									<li className="_nav_dropdown_list_item">
-										<a href="#0" className="_nav_dropdown_link">
+										<a href="#0" className="_nav_dropdown_link" onClick={(e) => {
+											e.preventDefault();
+											localStorage.removeItem('token');
+											localStorage.removeItem('user');
+											window.location.href = '/';
+										}}>
 											<div className="_nav_drop_info">
 												<span>
 													<svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="none" viewBox="0 0 19 19">
@@ -491,7 +496,7 @@ const Navbar = () => {
 												</span>
 												Log Out		
 											</div>
-											<button type="submit" className="_nav_drop_btn_link">
+											<button type="button" className="_nav_drop_btn_link">
 												<svg xmlns="http://www.w3.org/2000/svg" width="6" height="10" fill="none" viewBox="0 0 6 10">
 													<path fill="#112032" d="M5 5l.354.354L5.707 5l-.353-.354L5 5zM1.354 9.354l4-4-.708-.708-4 4 .708.708zm4-4.708l-4-4-.708.708 4 4 .708-.708z" opacity=".5"></path>
 												</svg>												  

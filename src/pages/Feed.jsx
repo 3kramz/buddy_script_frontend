@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar/Navbar';
 import LeftSidebar from '../components/Feed/LeftSidebar';
 import FeedMiddle from '../components/Feed/FeedMiddle';
@@ -6,6 +7,14 @@ import RightSidebar from '../components/Feed/RightSidebar';
 
 const Feed = () => {
     const [darkMode, setDarkMode] = React.useState(false);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        const token = localStorage.getItem('token');
+        if (!token) {
+            navigate('/');
+        }
+    }, [navigate]);
   return (
     <>
 
